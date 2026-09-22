@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order confirmed — GlowNest</title>
+<link rel="stylesheet" href="style.css">
+
+<!-- ============================================================
+     GA4 TRACKING CODE GOES HERE (same snippet as other pages)
+     This is the single most important page for tracking: a real
+     store fires its "purchase" conversion event on this page,
+     right after this comment block.
+     ============================================================ -->
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Glow<em>Nest</em></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="product.html">Shop</a>
+      <a href="index.html#values">About</a>
+      <a href="index.html#products">Products</a>
+    </div>
+    <a href="product.html" class="btn nav-cta">Shop the Serum</a>
+  </div>
+</nav>
+
+<section class="ty-wrap">
+  <div class="wrap">
+    <div class="ty-card">
+      <div class="ty-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path d="M4 12.5l5 5L20 7" stroke="#F6F1E7" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="kicker" style="text-align:center;">Order confirmed</div>
+      <h1>Thank you — your order is on its way.</h1>
+      <p class="lead">A confirmation has been sent to your email. This is a demo checkout, so no payment was taken — this page exists to show what a real "purchase" conversion looks like to GA4 and Google Ads.</p>
+
+      <div class="order-box">
+        <div>
+          <div class="label">Order number</div>
+          <div class="val" id="orderNo">—</div>
+        </div>
+        <div>
+          <div class="label">Quantity</div>
+          <div class="val" id="orderQty">—</div>
+        </div>
+        <div>
+          <div class="label">Total</div>
+          <div class="val" id="orderTotal">—</div>
+        </div>
+      </div>
+
+      <div class="ty-actions">
+        <a href="index.html" class="btn btn-primary">Continue shopping</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand">Glow<em>Nest</em></a>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="product.html">Shop</a>
+    </div>
+    <div class="fine">Demo site for tracking practice — not a live store.</div>
+  </div>
+</footer>
+
+<script>
+  const qty = parseInt(sessionStorage.getItem('glownest_order_qty') || '1', 10);
+  const price = 499;
+  document.getElementById('orderQty').textContent = qty;
+  document.getElementById('orderTotal').textContent = '₹' + (qty * price);
+  document.getElementById('orderNo').textContent = 'GN-' + Math.floor(100000 + Math.random() * 900000);
+
+  // Practical hook: a real store fires the GA4 "purchase" event right here,
+  // once, when this page loads — not on every refresh.
+  // Example (uncomment once GA4 is installed):
+  // gtag('event', 'purchase', {
+  //   transaction_id: document.getElementById('orderNo').textContent,
+  //   currency: 'INR',
+  //   value: qty * price,
+  //   items: [{ item_name: 'Radiance Vitamin C Serum', quantity: qty, price: price }]
+  // });
+</script>
+
+</body>
+</html>

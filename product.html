@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radiance Vitamin C Serum — GlowNest</title>
+<meta name="description" content="10% stabilised vitamin C serum with amla extract. ₹499, free shipping above ₹499.">
+<link rel="stylesheet" href="style.css">
+
+<!-- ============================================================
+     GA4 TRACKING CODE GOES HERE (same snippet as index.html)
+     Practical step: also add a "Buy Now" click event here,
+     e.g. gtag('event', 'add_to_cart', {...}), before the redirect
+     to thankyou.html.
+     ============================================================ -->
+
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="index.html" class="brand">Glow<em>Nest</em></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="product.html" class="active">Shop</a>
+      <a href="index.html#values">About</a>
+      <a href="index.html#products">Products</a>
+    </div>
+    <a href="product.html" class="btn nav-cta">Shop the Serum</a>
+  </div>
+</nav>
+
+<section class="product-hero">
+  <div class="wrap">
+    <div class="pd-gallery">
+      <svg viewBox="0 0 460 560" xmlns="http://www.w3.org/2000/svg">
+        <rect width="460" height="560" fill="#EFE8D8"/>
+        <rect x="175" y="130" width="110" height="290" rx="14" fill="#223321"/>
+        <rect x="195" y="98" width="70" height="42" rx="6" fill="#C79A3E"/>
+        <rect x="195" y="240" width="70" height="60" fill="#F6F1E7" opacity="0.9"/>
+        <text x="230" y="270" text-anchor="middle" font-family="Fraunces, serif" font-size="13" fill="#223321">GlowNest</text>
+        <circle cx="230" cy="470" r="90" fill="#E2B29B" opacity="0.45"/>
+        <circle cx="90" cy="90" r="14" fill="#C79A3E"/>
+        <circle cx="380" cy="480" r="10" fill="#7C8B6C"/>
+      </svg>
+    </div>
+
+    <div class="pd-info">
+      <div class="kicker">Serums</div>
+      <h1>Radiance Vitamin C Serum</h1>
+
+      <div class="rating">
+        <span class="stars">★★★★★</span>
+        <span>4.8 average rating</span>
+      </div>
+
+      <div class="pd-price">₹499</div>
+      <p class="pd-desc">A 10% stabilised vitamin C serum blended with amla extract and hyaluronic acid — built to fade dullness and even out tone without irritating sensitive skin. Lightweight, fast-absorbing, safe for daily morning use under sunscreen.</p>
+
+      <div class="pd-buy">
+        <div class="qty">
+          <button type="button" onclick="changeQty(-1)" aria-label="Decrease quantity">–</button>
+          <span id="qty">1</span>
+          <button type="button" onclick="changeQty(1)" aria-label="Increase quantity">+</button>
+        </div>
+        <a href="thankyou.html" id="buyNowBtn" class="btn btn-gold">Buy now</a>
+        <a href="#" class="btn btn-outline" onclick="return false;">Add to cart</a>
+      </div>
+
+      <ul class="ingredient-list">
+        <li><span>Key actives</span><span>10% Vitamin C, Amla extract, Hyaluronic acid</span></li>
+        <li><span>Skin type</span><span>All types, including sensitive</span></li>
+        <li><span>Volume</span><span>30ml</span></li>
+        <li><span>Use</span><span>3–4 drops, AM, before sunscreen</span></li>
+        <li><span>Shipping</span><span>Free above ₹499, dispatched in 2 days</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section-forest section-tight">
+  <div class="wrap two-col">
+    <div>
+      <div class="kicker">Why it works</div>
+      <h2 class="section-title">Stabilised, not oxidised</h2>
+    </div>
+    <div>
+      <p style="max-width:56ch;">Most vitamin C serums oxidise within weeks of opening and turn ineffective (and slightly orange) before the bottle is half used. GlowNest's amla-stabilised formula holds its potency for the full 90-day period after opening, so every drop through the bottle works as hard as the first.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="brand">Glow<em>Nest</em></a>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="product.html">Shop</a>
+      <a href="index.html#values">About</a>
+    </div>
+    <div class="fine">Demo site for tracking practice — not a live store.</div>
+  </div>
+</footer>
+
+<script>
+  let qty = 1;
+  function changeQty(delta) {
+    qty = Math.max(1, qty + delta);
+    document.getElementById('qty').textContent = qty;
+  }
+
+  // Practical hook: this is where a real "add_to_cart" / "begin_checkout"
+  // GA4 event would fire before sending the user to the Thank You page.
+  document.getElementById('buyNowBtn').addEventListener('click', function () {
+    // Example (uncomment once GA4 is installed):
+    // gtag('event', 'purchase', {
+    //   currency: 'INR',
+    //   value: 499 * qty,
+    //   items: [{ item_name: 'Radiance Vitamin C Serum', quantity: qty, price: 499 }]
+    // });
+    sessionStorage.setItem('glownest_order_qty', qty);
+  });
+</script>
+
+</body>
+</html>
